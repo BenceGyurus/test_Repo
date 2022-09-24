@@ -1,6 +1,7 @@
 const express = require("express");
 const a = require("./test.js");
 const fs = require("fs");
+const { nextTick } = require("process");
 
 const app = express();
 
@@ -18,6 +19,10 @@ app.get("/", (req,res)=>{
     let b = a(req.url == "/"? "/index.html" : req.url);
     res.sendFile( b ? b : `${__dirname}/public/index.html`);
 });
+
+app.get("/main.js", (req,res)=>{
+    res.sendFile(`${__dirname}/public/main.js`);
+})
 
 app.use((req,res)=>{
     console.log(req.url);
