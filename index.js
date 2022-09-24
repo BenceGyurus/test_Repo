@@ -22,12 +22,7 @@ app.get("/", (req,res)=>{
 
 app.get("/main.js", (req,res)=>{
     res.sendFile(`${__dirname}/public/main.js`);
-})
+});
 
-app.use((req,res)=>{
-    console.log(req.url);
-    let b = a(req.url == "/"? "/index.html" : req.url);
-    res.send(open_File(b ? b : `${__dirname}/public/index.html`));
-})
 
 app.listen(8000);
