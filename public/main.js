@@ -1,1 +1,1 @@
-alert("Szia uram");
+console.log("Szia uram");
